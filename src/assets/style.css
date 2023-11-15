@@ -1,0 +1,154 @@
+@font-face {
+    font-family: Impact;
+    src: url("./fonts/impact2.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+    height: 90vh;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 90vh;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+.output-setup,
+.output-punchline {
+    width: 100%;
+    font-family: Impact;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: wrap;
+    color: #fff;
+    -webkit-text-stroke: #000 2px;
+    position: relative;
+    font-weight: normal;
+    z-index: 10;
+}
+
+.output-setup {
+    font-size: 64px;
+    margin-top: 7%;
+}
+
+.output-punchline {
+    font-size: 44px;
+    margin-bottom: 7%;
+}
+
+.img-output {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 100%;
+    z-index: 0;
+}
+
+.controls {
+    width: 25vw;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.img-input {
+    display: none;
+}
+
+.img-input-label {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #000;
+    font-weight: 700;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.img-input-label:hover {
+    background: #000;
+    color: #fff;
+}
+
+.block {
+    margin-bottom: 15px;
+}
+
+.block-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.inner-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setup-input,
+.punchline-input {
+    width: 100%;
+    margin-bottom: 5px !important;
+    padding: 5px 10px;
+    border: 2px solid #000;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.color-input {
+    cursor: pointer;
+}
+
+.block-select {
+    padding: 5px;
+    margin-bottom: 5px;
+    outline: none;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.download-btn {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid #000;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background: #000;
+    color: #fff;
+}
