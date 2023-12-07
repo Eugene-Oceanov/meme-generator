@@ -3,11 +3,11 @@ import "./assets/style.css";
 
 const layouts = require("./js/layouts.js"),
     funcs = require("./js/funcs.js"),
-    imgInput = document.querySelector("#panel__upload-img-input"),
+    imgInput = document.querySelector("#panel__img-input"),
     imgLabelsWrapper = document.querySelector(".panel-images-wrapper"),
+    addTextBtn = document.querySelector(".panel__add-inscription-btn"),
+    textLabelsWrapper = document.querySelector(".panel-inscriptions-wrapper"),
     canvas = document.querySelector(".canvas"),
-    addTextBtn = document.querySelector(".panel__add-text-btn"),
-    textLabelsWrapper = document.querySelector(".panel-inscription-controls-wrapper"),
     canvasResizeTrig = document.querySelector(".canvas-resize-trig"),
     downloadCanvasBtn = document.querySelector(".panel__download-canvas-btn"),
     clearCanvasBtn = document.querySelector(".panel__clear-canvas-btn");
@@ -53,4 +53,4 @@ addTextBtn.onclick = () => {
 };
 
 downloadCanvasBtn.onclick = () => funcs.downloadCanvas(canvas);
-clearCanvasBtn.onclick = () => funcs.clearCanvas(imgLabelsWrapper, textLabelsWrapper, canvas)
+clearCanvasBtn.onclick = () => funcs.clearCanvas(imgLabelsWrapper, textLabelsWrapper, canvas);

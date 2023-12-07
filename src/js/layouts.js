@@ -3,18 +3,18 @@ module.exports = {
     const textPanel = document.createElement("DETAILS");
     textPanel.classList.add("inscription-label", `inscription-label-${counter}`);
     textPanel.innerHTML = `<summary>
-                            <div class="summary-title-wrapper">
+                            <div class="summary-title-wrapper d-flex ai-center">
                               ${this.arrowSVG()}
                               <p class="inscription-title">Inscription #${counter}</p>
                             </div>
                             ${this.deleteSVG(counter)}
                           </summary>
                           <input type="text" class="inscription-${counter}__text-input inscription-text-input" placeholder="Input text...">
-                          <div class="input-wrapper">
+                          <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Color:</p>
                             <input type="color" class="inscription-${counter}__color-input" value="#FFFFFF">
                           </div>
-                          <div class="input-wrapper">
+                          <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Font family:</p>
                             <select class="inscription-${counter}__font-select">
                               <option value="Impact" style="font-family: Impact">Impact</option>
@@ -26,7 +26,7 @@ module.exports = {
                               </option>
                             </select>
                           </div>
-                          <div class="input-wrapper">
+                          <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Font size:</p>
                             <select class="inscription-${counter}__size-select">
                               <option value="8">8</option>
@@ -43,11 +43,11 @@ module.exports = {
                               <option value="72">72</option>
                             </select>
                           </div>
-                          <div class="input-wrapper">
+                          <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Stroke:</p>
                             <input type="checkbox" class="inscription-${counter}__stroke-cb" checked="true">
                           </div>
-                          <div class="input-wrapper">
+                          <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Z-index:</p>
                             <input type="text" class="inscription-${counter}__z-input z-input" value="${counter}">
                           </div>`;
@@ -65,23 +65,23 @@ module.exports = {
     const imgLabel = document.createElement("DETAILS");
     imgLabel.classList.add("img-label", `img-label-${counter}`);
     imgLabel.innerHTML = `<summary>
-                            <div class="summary-title-wrapper">
+                            <div class="summary-title-wrapper d-flex ai-center">
                               ${this.arrowSVG()}
                               <p class="label-title">${name}</p>
                             </div>
                             ${this.deleteSVG(counter)}
                           </summary>
-                          <div class="input-wrapper">
+                          <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Z-index:</p>
                             <input type="text" class="img-${counter}__z-input z-input" value="${counter}">
                           </div>
-                          <div class="input-wrapper-block">
-                            <p>Rotate:</p>
+                          <div class="input-wrapper">
+                            <p class="text-center">Rotate:</p>
                             <input type="range" min="-180" max="180" value="0" step="1" class="img-${counter}__rotate-input rotate-input">
                           </div>
-                          <div class="input-wrapper-block">
-                            <p>Scale:</p>
-                            <input type="range" min="0.5" max="1.5" value="1" step="0.01" class="img-${counter}__scale-input scale-input">
+                          <div class="input-wrapper">
+                            <p class="text-center">Scale:</p>
+                            <input type="range" min="-0.5" max="2.5" value="1" step="0.01" class="img-${counter}__scale-input scale-input">
                           </div>`;
     return imgLabel
   },

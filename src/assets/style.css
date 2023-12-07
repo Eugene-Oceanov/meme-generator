@@ -1,3 +1,4 @@
+/* reset start */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,6 @@
     font-size: 14px;
 }
 
-/* default start */
 body {
     position: relative;
     height: 100vh;
@@ -34,10 +34,6 @@ details+details {
     margin-top: 3px;
 }
 
-details[open] .open-details-svg {
-    transform: rotate(180deg);
-}
-
 summary {
     display: flex;
     justify-content: space-between;
@@ -49,12 +45,6 @@ summary p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.summary-title-wrapper {
-    width: 80%;
-    display: flex;
-    align-items: center;
 }
 
 select {
@@ -73,6 +63,39 @@ input[type="range"] {
     width: 100%;
 }
 
+/* default start */
+.d-block {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.jc-space-between {
+    justify-content: space-between;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.fd-column {
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
+}
+
 /* default end */
 
 /* panel start */
@@ -87,15 +110,9 @@ input[type="range"] {
     z-index: 1000;
 }
 
-#panel__upload-img-input {
-    display: none;
-}
-
 .btn {
-    display: block;
     width: 100%;
     padding: 5px 10px;
-    text-align: center;
     font-weight: 700;
     background: #fff;
     border: 2px solid #000;
@@ -113,6 +130,14 @@ input[type="range"] {
     color: #fff;
 }
 
+details[open] .open-details-svg {
+    transform: rotate(180deg);
+}
+
+.summary-title-wrapper {
+    width: 80%;
+}
+
 .delete-text-item-btn {
     width: 15px;
     cursor: pointer;
@@ -128,14 +153,10 @@ input[type="range"] {
 
 .input-wrapper {
     margin-top: 3px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .input-wrapper-block {
     margin-top: 3px;
-    /* text-align: center; */
 }
 
 .wrapper {
@@ -178,7 +199,8 @@ input[type="range"] {
     position: absolute;
     font-size: 64px;
     font-family: Impact;
-    white-space: nowrap;
+    text-wrap: wrap;
+    text-align: center;
     color: #fff;
     -webkit-text-stroke: 2px #000;
     cursor: move;
