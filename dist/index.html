@@ -10,106 +10,20 @@
 <script defer src="main.js"></script></head>
 
 <body>
-    <div class="wrapper">
-
-        <div class="output">
-            <img class="img-output">
-            <p class="output-setup"></p>
-            <p class="output-punchline"></p>
-        </div>
-
-        <div class="controls">
-            <input type="file" class="img-input" id="img-input">
-            <label for="img-input" class="img-input-label">Upload file</label>
-            <div class="setup block">
-                <p class="block-title">Setup</p>
-                <input type="text" class="setup-input" placeholder="Enter setup...">
-                <div class="inner-block">
-                    <p class="inner-block-title">Font size:</p>
-                    <select class="setup-font-size-select block-select">
-                        <option value="8">8</option>
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                        <option value="18">18</option>
-                        <option value="24">24</option>
-                        <option value="32">32</option>
-                        <option value="44">44</option>
-                        <option value="52">52</option>
-                        <option value="52">52</option>
-                        <option value="58">58</option>
-                        <option value="64" selected>64</option>
-                        <option value="72">72</option>
-                    </select>
-                </div>
-                <div class="inner-block">
-                    <p class="inner-block-title">Font family:</p>
-                    <select class="setup-font-family-select block-select">
-                        <option value="Impact" style="font-family: Impact">Impact</option>
-                        <option value="Times New Roman" style="font-family: Times New Roman">Times New Roman</option>
-                        <option value="Calibri" style="font-family: Calibri">Calibri</option>
-                        <option value="Segoe UI" style="font-family: Segoe UI">Segoe UI</option>
-                        <option value="Comic Sans MS" style="font-family: Comic Sans MS">Comic Sans MS</option>
-                        <option value="Antonella script X" style="font-family: Antonella script X">Antonella script X
-                        </option>
-                    </select>
-                </div>
-                <div class="inner-block">
-                    <p class="inner-block-title">Color:</p>
-                    <input type="color" class="setup-color-input color-input" value="#FFFFFF">
-                </div>
-                <div class="inner-block" style="margin-top: 10px;">
-                    <p class="inner-block-title">Stroke:</p>
-                    <input type="checkbox" class="setup-stroke-checkbox" checked>
-                </div>
-            </div>
-
-            <div class="punchline block">
-                <p class="block-title">Punchline</p>
-                <input type="text" class="punchline-input" placeholder="Enter punchline...">
-                <div class="inner-block">
-                    <p class="inner-block-title">Font size:</p>
-                    <select class="punchline-font-size-select block-select">
-                        <option value="8">8</option>
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                        <option value="18">18</option>
-                        <option value="24">24</option>
-                        <option value="32">32</option>
-                        <option value="44" selected>44</option>
-                        <option value="52">52</option>
-                        <option value="52">52</option>
-                        <option value="58">58</option>
-                        <option value="64">64</option>
-                        <option value="72">72</option>
-                    </select>
-                </div>
-                <div class="inner-block">
-                    <p class="inner-block-title">Font family:</p>
-                    <select class="punchline-font-family-select block-select">
-                        <option value="Impact" style="font-family: Impact">Impact</option>
-                        <option value="Times New Roman" style="font-family: Times New Roman">Times New Roman</option>
-                        <option value="Calibri" style="font-family: Calibri">Calibri</option>
-                        <option value="Segoe UI" style="font-family: Segoe UI">Segoe UI</option>
-                        <option value="Comic Sans MS" style="font-family: Comic Sans MS">Comic Sans MS</option>
-                        <option value="Antonella script X" style="font-family: Antonella script X">Antonella script X
-                        </option>
-                    </select>
-                </div>
-                <div class="inner-block">
-                    <p class="inner-block-title">Color:</p>
-                    <input type="color" class="punchline-color-input color-input" value="#FFFFFF">
-                </div>
-                <div class="inner-block" style="margin-top: 10px;">
-                    <p class="inner-block-title">Stroke:</p>
-                    <input type="checkbox" class="punchline-stroke-checkbox" checked>
-                </div>
-
-            </div>
-            <button class="download-btn">Download file</button>
-        </div>
-
+    <div class="panel">
+        <input type="file" class="d-none" id="panel__img-input">
+        <label for="panel__img-input" class="panel__upload-img-btn btn d-block text-center">Upload image</label>
+        <div class="panel-images-wrapper wrapper"></div>
+        <button class="panel__add-inscription-btn btn d-block text-center">Add inscription</button>
+        <div class="panel-inscriptions-wrapper wrapper"></div>
+        <button class="panel__download-canvas-btn btn d-block text-center">Download canvas</button>
+        <button class="panel__clear-canvas-btn btn d-block text-center">Clear canvas</button>
     </div>
 
+    <div class="output-wrapper">
+        <canvas class="canvas d-none"></canvas>
+        <div class="canvas-resize-trig"></div>
+    </div>
 </body>
 
 </html>

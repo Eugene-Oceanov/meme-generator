@@ -11,9 +11,11 @@ module.exports = {
     },
 
     styledImgOutput: function (zInput, rotateInput, scaleInput, output) {
+        const outputWidth = output.clientWidth;
+        let outputHeight = output.clientHeight;
         zInput.addEventListener("input", () => output.style.zIndex = zInput.value);
-        rotateInput.addEventListener("input", () => output.style.rotate = `${rotateInput.value}deg`);
-        scaleInput.addEventListener("input", () => output.style.scale = `${scaleInput.value}`);
+        rotateInput.addEventListener("input", () => output.style.transform = `rotate(${rotateInput.value}deg)`);
+        scaleInput.addEventListener("input", () => output.style.height = `${outputHeight / 100 * scaleInput.value}px`);
     },
 
     moveElement: function (element, parent) {
@@ -89,16 +91,20 @@ module.exports = {
         canvas.remove();
     },
 
-    downloadCanvas: function (wrapper) {
+    downloadCanvas: function (wrapper, outputCanvas) {
+
         html2canvas(wrapper).then(canvas => {
-            wrapper.innerHTML = "";
-            wrapper.appendChild(canvas);
+            outputCanvas.classList.remove("d-none");
+            // wrapper.innerHTML = "";
+            outputCanvas.appendChild(canvas);
             let date = new Date();
             const link = document.createElement("A");
             link.download = `myMeme_${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}_${date.getHours()}:${date.getMinutes()}.jpg`;
             link.href = canvas.toDataURL();
             link.click();
+            outputCanvas.classList.add("d-none");
         })
+
     },
 
     clearCanvas: function (imgLabelsWrapper, inscriptionLabelsWrapper, canvas) {

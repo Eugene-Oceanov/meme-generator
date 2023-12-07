@@ -174,7 +174,7 @@ details[open] .open-details-svg {
     width: 20%;
 }
 
-.canvas {
+.output-wrapper {
     position: relative;
     width: 500px;
     height: 500px;
@@ -214,8 +214,10 @@ details[open] .open-details-svg {
 }
 
 canvas {
+    position: absolute;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
+    z-index: 1000;
 }

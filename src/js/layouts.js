@@ -81,7 +81,7 @@ module.exports = {
                           </div>
                           <div class="input-wrapper">
                             <p class="text-center">Scale:</p>
-                            <input type="range" min="-0.5" max="2.5" value="1" step="0.01" class="img-${counter}__scale-input scale-input">
+                            <input type="range" min="20" max="180" value="100" step="1" class="img-${counter}__scale-input scale-input">
                           </div>`;
     return imgLabel
   },

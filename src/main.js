@@ -7,6 +7,7 @@ const layouts = require("./js/layouts.js"),
     imgLabelsWrapper = document.querySelector(".panel-images-wrapper"),
     addTextBtn = document.querySelector(".panel__add-inscription-btn"),
     textLabelsWrapper = document.querySelector(".panel-inscriptions-wrapper"),
+    outputWrapper = document.querySelector(".output-wrapper"),
     canvas = document.querySelector(".canvas"),
     canvasResizeTrig = document.querySelector(".canvas-resize-trig"),
     downloadCanvasBtn = document.querySelector(".panel__download-canvas-btn"),
@@ -15,7 +16,7 @@ const layouts = require("./js/layouts.js"),
 let textCounter = 0,
     imgCounter = 0;
 
-funcs.resizeElement(canvas, canvasResizeTrig);
+funcs.resizeElement(outputWrapper, canvasResizeTrig);
 // funcs.rescale(canvas);
 
 imgInput.oninput = () => {
@@ -24,15 +25,15 @@ imgInput.oninput = () => {
     const imgLabel = layouts.imgLabelLayout(imgCounter, f.name);
     imgLabelsWrapper.append(imgLabel);
     const imgOutput = layouts.imgOutputLayout();
-    imgOutput.style.height = `${canvas.clientHeight}px`
-    canvas.append(imgOutput);
+    imgOutput.style.height = `${outputWrapper.clientHeight}px`
+    outputWrapper.append(imgOutput);
     if (f) imgOutput.src = URL.createObjectURL(f);
     imgLabel.querySelector(`.delete-item-btn-${imgCounter}`).onclick = (e) => funcs.removeItem(e, imgLabel, imgOutput);
     funcs.styledImgOutput(imgLabel.querySelector(`.img-${imgCounter}__z-input`),
         imgLabel.querySelector(`.img-${imgCounter}__rotate-input`),
         imgLabel.querySelector(`.img-${imgCounter}__scale-input`),
         imgOutput)
-    funcs.moveElement(imgOutput, canvas);
+    funcs.moveElement(imgOutput, outputWrapper);
 }
 
 addTextBtn.onclick = () => {
@@ -40,7 +41,7 @@ addTextBtn.onclick = () => {
     const textLabel = layouts.inscrtiptionLabelLayout(textCounter);
     const textOutput = layouts.outputInscrtiptionLayout(textCounter);
     textLabelsWrapper.append(textLabel);
-    canvas.append(textOutput);
+    outputWrapper.append(textOutput);
     textLabel.querySelector(`.delete-item-btn-${textCounter}`).onclick = (e) => funcs.removeItem(e, textLabel, textOutput);
     funcs.styledOutputText(textLabel.querySelector(`.inscription-${textCounter}__text-input`),
         textLabel.querySelector(`.inscription-${textCounter}__color-input`),
@@ -49,8 +50,8 @@ addTextBtn.onclick = () => {
         textLabel.querySelector(`.inscription-${textCounter}__stroke-cb`),
         textLabel.querySelector(`.inscription-${textCounter}__z-input`),
         textOutput);
-    funcs.moveElement(textOutput, canvas);
+    funcs.moveElement(textOutput, outputWrapper);
 };
 
-downloadCanvasBtn.onclick = () => funcs.downloadCanvas(canvas);
-clearCanvasBtn.onclick = () => funcs.clearCanvas(imgLabelsWrapper, textLabelsWrapper, canvas);
+downloadCanvasBtn.onclick = () => funcs.downloadCanvas(outputWrapper, canvas);
+clearCanvasBtn.onclick = () => funcs.clearCanvas(imgLabelsWrapper, textLabelsWrapper, outputWrapper);
