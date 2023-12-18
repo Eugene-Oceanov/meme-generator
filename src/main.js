@@ -1,8 +1,9 @@
 import "./assets/style.css";
 
-
 const layouts = require("./js/layouts.js"),
     funcs = require("./js/funcs.js"),
+    hiddenPanelBtn = document.querySelector(".hidden-panel"),
+    panel = document.querySelector(".panel"),
     imgInput = document.querySelector("#panel__img-input"),
     imgLabelsWrapper = document.querySelector(".panel-images-wrapper"),
     addTextBtn = document.querySelector(".panel__add-inscription-btn"),
@@ -17,7 +18,8 @@ let textCounter = 0,
     imgCounter = 0;
 
 funcs.resizeElement(outputWrapper, canvasResizeTrig);
-// funcs.rescale(canvas);
+
+hiddenPanelBtn.onclick = () => panel.classList.toggle("d-none");
 
 imgInput.oninput = () => {
     imgCounter++;
@@ -32,7 +34,8 @@ imgInput.oninput = () => {
     funcs.styledImgOutput(imgLabel.querySelector(`.img-${imgCounter}__z-input`),
         imgLabel.querySelector(`.img-${imgCounter}__rotate-input`),
         imgLabel.querySelector(`.img-${imgCounter}__scale-input`),
-        imgOutput)
+        imgLabel.querySelector(`.img-${imgCounter}__opacity-input`),
+        imgOutput, outputWrapper)
     funcs.moveElement(imgOutput, outputWrapper);
 }
 
@@ -42,6 +45,7 @@ addTextBtn.onclick = () => {
     const textOutput = layouts.outputInscrtiptionLayout(textCounter);
     textLabelsWrapper.append(textLabel);
     outputWrapper.append(textOutput);
+    textOutput.style.zIndex = textCounter;
     textLabel.querySelector(`.delete-item-btn-${textCounter}`).onclick = (e) => funcs.removeItem(e, textLabel, textOutput);
     funcs.styledOutputText(textLabel.querySelector(`.inscription-${textCounter}__text-input`),
         textLabel.querySelector(`.inscription-${textCounter}__color-input`),
@@ -49,6 +53,7 @@ addTextBtn.onclick = () => {
         textLabel.querySelector(`.inscription-${textCounter}__size-select`),
         textLabel.querySelector(`.inscription-${textCounter}__stroke-cb`),
         textLabel.querySelector(`.inscription-${textCounter}__z-input`),
+        textLabel.querySelector(`.inscription-${textCounter}__rotate-input`),
         textOutput);
     funcs.moveElement(textOutput, outputWrapper);
 };

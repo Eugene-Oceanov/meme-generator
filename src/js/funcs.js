@@ -1,21 +1,22 @@
 const html2canvas = require("html2canvas");
 
 module.exports = {
-    styledOutputText: function (textInput, colorInput, fontInput, sizeInput, strokeInput, zInput, output) {
+    styledOutputText: function (textInput, colorInput, fontInput, sizeInput, strokeInput, zInput, rotateInput, output) {
         textInput.addEventListener("input", () => output.innerText = textInput.value);
         colorInput.addEventListener("input", () => output.style.color = colorInput.value);
         fontInput.addEventListener("input", () => output.style.fontFamily = fontInput.value);
         sizeInput.addEventListener("input", () => output.style.fontSize = `${sizeInput.value}px`);
         strokeInput.addEventListener("change", () => strokeInput.checked ? output.style.webkitTextStroke = `2px #000` : output.style.webkitTextStroke = `0px #000`);
+        rotateInput.addEventListener("input", () => output.style.transform = `rotate(${rotateInput.value}deg)`);
         zInput.addEventListener("input", () => output.style.zIndex = zInput.value);
     },
 
-    styledImgOutput: function (zInput, rotateInput, scaleInput, output) {
-        const outputWidth = output.clientWidth;
+    styledImgOutput: function (zInput, rotateInput, scaleInput, opacityInput, output, canvas) {
         let outputHeight = output.clientHeight;
         zInput.addEventListener("input", () => output.style.zIndex = zInput.value);
         rotateInput.addEventListener("input", () => output.style.transform = `rotate(${rotateInput.value}deg)`);
         scaleInput.addEventListener("input", () => output.style.height = `${outputHeight / 100 * scaleInput.value}px`);
+        opacityInput.addEventListener("input", () => output.style.opacity = opacityInput.value);
     },
 
     moveElement: function (element, parent) {
@@ -92,10 +93,8 @@ module.exports = {
     },
 
     downloadCanvas: function (wrapper, outputCanvas) {
-
         html2canvas(wrapper).then(canvas => {
             outputCanvas.classList.remove("d-none");
-            // wrapper.innerHTML = "";
             outputCanvas.appendChild(canvas);
             let date = new Date();
             const link = document.createElement("A");
@@ -104,12 +103,15 @@ module.exports = {
             link.click();
             outputCanvas.classList.add("d-none");
         })
-
     },
 
     clearCanvas: function (imgLabelsWrapper, inscriptionLabelsWrapper, canvas) {
         imgLabelsWrapper.innerHTML = ``;
         inscriptionLabelsWrapper.innerHTML = ``;
         canvas.innerHTML = ``;
+        const resizeTrig = document.createElement("DIV");
+        resizeTrig.classList.add("canvas-resize-trig");
+        canvas.append(resizeTrig);
+        this.resizeElement(canvas, resizeTrig)
     }
 }

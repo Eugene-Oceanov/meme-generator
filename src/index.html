@@ -10,15 +10,25 @@
 </head>
 
 <body>
-    <div class="panel">
-        <input type="file" class="d-none" id="panel__img-input">
-        <label for="panel__img-input" class="panel__upload-img-btn btn d-block text-center">Upload image</label>
-        <div class="panel-images-wrapper wrapper"></div>
-        <button class="panel__add-inscription-btn btn d-block text-center">Add inscription</button>
-        <div class="panel-inscriptions-wrapper wrapper"></div>
-        <button class="panel__download-canvas-btn btn d-block text-center">Download canvas</button>
-        <button class="panel__clear-canvas-btn btn d-block text-center">Clear canvas</button>
+    <div class="panel-wrapper">
+        <div class="hidden-panel">
+            <?xml version="1.0" encoding="utf-8"?>
+            <svg class="open-details-svg" width="30px" height="14px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M903.232 256l56.768 50.432L512 768 64 306.432 120.768 256 512 659.072z" fill="#000000" />
+            </svg>
+        </div>
+        <div class="panel">
+            <input type="file" class="d-none" id="panel__img-input">
+            <label for="panel__img-input" class="panel__upload-img-btn btn d-block text-center">Upload image</label>
+            <div class="panel-images-wrapper wrapper"></div>
+            <button class="panel__add-inscription-btn btn d-block text-center">Add inscription</button>
+            <div class="panel-inscriptions-wrapper wrapper"></div>
+            <button class="panel__download-canvas-btn btn d-block text-center">Download canvas</button>
+            <button class="panel__clear-canvas-btn btn d-block text-center">Clear canvas</button>
+        </div>
     </div>
+
 
     <div class="output-wrapper">
         <canvas class="canvas d-none"></canvas>

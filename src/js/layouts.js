@@ -22,8 +22,10 @@ module.exports = {
                               <option value="Calibri" style="font-family: Calibri">Calibri</option>
                               <option value="Segoe UI" style="font-family: Segoe UI">Segoe UI</option>
                               <option value="Comic Sans MS" style="font-family: Comic Sans MS">Comic Sans MS</option>
-                              <option value="Antonella script X" style="font-family: Antonella script X">Antonella script X
-                              </option>
+                              <option value="Antonella script X" style="font-family: Antonella script X">Antonella script X</option>
+                              <option value="Streamster" style="font-family: Streamster">Streamster</option>
+                              <option value="Triod" style="font-family: Triod">Triod</option>
+                              <option value="Lobster" style="font-family: Lobster">Lobster</option>
                             </select>
                           </div>
                           <div class="input-wrapper d-flex jc-space-between ai-center">
@@ -50,6 +52,10 @@ module.exports = {
                           <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Z-index:</p>
                             <input type="text" class="inscription-${counter}__z-input z-input" value="${counter}">
+                          </div>
+                          <div class="input-wrapper">
+                            <p class="text-center">Rotate:</p>
+                            <input type="range" min="-180" max="180" value="0" step="1" class="inscription-${counter}__rotate-input rotate-input">
                           </div>`;
     return textPanel;
   },
@@ -60,7 +66,7 @@ module.exports = {
     outputText.style.zIndex = counter;
     return outputText;
   },
-  // ======================================================
+
   imgLabelLayout: function (counter, name) {
     const imgLabel = document.createElement("DETAILS");
     imgLabel.classList.add("img-label", `img-label-${counter}`);
@@ -82,6 +88,10 @@ module.exports = {
                           <div class="input-wrapper">
                             <p class="text-center">Scale:</p>
                             <input type="range" min="20" max="180" value="100" step="1" class="img-${counter}__scale-input scale-input">
+                          </div>
+                          <div class="input-wrapper">
+                            <p class="text-center">Opacity:</p>
+                            <input type="range" min="0" max="1" value="100" step="0.01" class="img-${counter}__opacity-input opacity-input">
                           </div>`;
     return imgLabel
   },
