@@ -23,7 +23,7 @@ hiddenPanelBtn.onclick = () => panel.classList.toggle("d-none");
 
 imgInput.oninput = () => {
     imgCounter++;
-    let f = imgInput.files[0];
+    const f = imgInput.files[0];
     const imgLabel = layouts.imgLabelLayout(imgCounter, f.name);
     imgLabelsWrapper.append(imgLabel);
     const imgOutput = layouts.imgOutputLayout();
@@ -35,6 +35,7 @@ imgInput.oninput = () => {
         imgLabel.querySelector(`.img-${imgCounter}__rotate-input`),
         imgLabel.querySelector(`.img-${imgCounter}__scale-input`),
         imgLabel.querySelector(`.img-${imgCounter}__opacity-input`),
+        imgLabel.querySelector(`.img-${imgCounter}__remove-bg-btn`),
         imgOutput, outputWrapper)
     funcs.moveElement(imgOutput, outputWrapper);
 }

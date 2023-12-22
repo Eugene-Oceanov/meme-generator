@@ -92,7 +92,8 @@ module.exports = {
                           <div class="input-wrapper">
                             <p class="text-center">Opacity:</p>
                             <input type="range" min="0" max="1" value="100" step="0.01" class="img-${counter}__opacity-input opacity-input">
-                          </div>`;
+                          </div>
+                          <button class="img-${counter}__remove-bg-btn btn">Remove background</button>`;
     return imgLabel
   },
 
