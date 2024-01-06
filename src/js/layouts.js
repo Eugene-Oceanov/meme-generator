@@ -1,22 +1,59 @@
 module.exports = {
-  inscrtiptionLabelLayout: function (counter) {
+  imgLabelLayout: function (classCounter, zCounter, name) {
+    const imgLabel = document.createElement("DETAILS");
+    imgLabel.classList.add("img-label", `img-label-${classCounter}`);
+    imgLabel.innerHTML = `<summary>
+                            <div class="summary-title-wrapper d-flex ai-center">
+                              ${this.arrowSVG()}
+                              <p class="label-title">${name}</p>
+                            </div>
+                            ${this.deleteSVG(classCounter)}
+                          </summary>
+                          <div class="input-wrapper d-flex jc-space-between ai-center">
+                            <p>Z-index:</p>
+                            <input type="text" class="img-${classCounter}__z-input z-input" value="${zCounter}">
+                          </div>
+                          <div class="input-wrapper">
+                            <p class="text-center">Rotate:</p>
+                            <input type="range" min="-180" max="180" value="0" step="1" class="img-${classCounter}__rotate-input rotate-input">
+                          </div>
+                          <div class="input-wrapper">
+                            <p class="text-center">Scale:</p>
+                            <input type="range" min="20" max="180" value="100" step="1" class="img-${classCounter}__scale-input scale-input">
+                          </div>
+                          <div class="input-wrapper">
+                            <p class="text-center">Opacity:</p>
+                            <input type="range" min="0" max="1" value="100" step="0.01" class="img-${classCounter}__opacity-input opacity-input">
+                          </div>
+                          <button class="img-${classCounter}__remove-bg-btn btn">Remove background</button>`;
+    return imgLabel
+  },
+
+  imgOutputLayout: function (classCounter, zCounter) {
+    const imgOutput = document.createElement("IMG");
+    imgOutput.classList.add(`img-output-${classCounter}`, "img-output");
+    imgOutput.classList.zIndex = zCounter;
+    return imgOutput;
+  },
+
+  inscrtiptionLabelLayout: function (classCounter, zCounter) {
     const textPanel = document.createElement("DETAILS");
-    textPanel.classList.add("inscription-label", `inscription-label-${counter}`);
+    textPanel.classList.add("inscription-label", `inscription-label-${classCounter}`);
     textPanel.innerHTML = `<summary>
                             <div class="summary-title-wrapper d-flex ai-center">
                               ${this.arrowSVG()}
-                              <p class="inscription-title">Inscription #${counter}</p>
+                              <p class="inscription-title inscription-${classCounter}-title">Inscription #${classCounter}</p>
                             </div>
-                            ${this.deleteSVG(counter)}
+                            ${this.deleteSVG(classCounter)}
                           </summary>
-                          <input type="text" class="inscription-${counter}__text-input inscription-text-input" placeholder="Input text...">
+                          <input type="text" class="inscription-${classCounter}__text-input inscription-text-input" placeholder="Input text...">
                           <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Color:</p>
-                            <input type="color" class="inscription-${counter}__color-input" value="#FFFFFF">
+                            <input type="color" class="inscription-${classCounter}__color-input" value="#FFFFFF">
                           </div>
                           <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Font family:</p>
-                            <select class="inscription-${counter}__font-select">
+                            <select class="inscription-${classCounter}__font-select">
                               <option value="Impact" style="font-family: Impact">Impact</option>
                               <option value="Times New Roman" style="font-family: Times New Roman">Times New Roman</option>
                               <option value="Calibri" style="font-family: Calibri">Calibri</option>
@@ -30,7 +67,7 @@ module.exports = {
                           </div>
                           <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Font size:</p>
-                            <select class="inscription-${counter}__size-select">
+                            <select class="inscription-${classCounter}__size-select">
                               <option value="8">8</option>
                               <option value="12">12</option>
                               <option value="14">14</option>
@@ -47,60 +84,24 @@ module.exports = {
                           </div>
                           <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Stroke:</p>
-                            <input type="checkbox" class="inscription-${counter}__stroke-cb" checked="true">
+                            <input type="checkbox" class="inscription-${classCounter}__stroke-cb" checked="true">
                           </div>
                           <div class="input-wrapper d-flex jc-space-between ai-center">
                             <p>Z-index:</p>
-                            <input type="text" class="inscription-${counter}__z-input z-input" value="${counter}">
+                            <input type="text" class="inscription-${classCounter}__z-input z-input" value="${zCounter}">
                           </div>
                           <div class="input-wrapper">
                             <p class="text-center">Rotate:</p>
-                            <input type="range" min="-180" max="180" value="0" step="1" class="inscription-${counter}__rotate-input rotate-input">
+                            <input type="range" min="-180" max="180" value="0" step="1" class="inscription-${classCounter}__rotate-input rotate-input">
                           </div>`;
     return textPanel;
   },
 
-  outputInscrtiptionLayout: function (counter) {
+  outputInscrtiptionLayout: function (classCounter, zCounter) {
     const outputText = document.createElement("P");
-    outputText.classList.add(`inscription-output-${counter}`, "inscription-output");
-    outputText.style.zIndex = counter;
+    outputText.classList.add(`inscription-output-${classCounter}`, "inscription-output");
+    outputText.style.zIndex = zCounter;
     return outputText;
-  },
-
-  imgLabelLayout: function (counter, name) {
-    const imgLabel = document.createElement("DETAILS");
-    imgLabel.classList.add("img-label", `img-label-${counter}`);
-    imgLabel.innerHTML = `<summary>
-                            <div class="summary-title-wrapper d-flex ai-center">
-                              ${this.arrowSVG()}
-                              <p class="label-title">${name}</p>
-                            </div>
-                            ${this.deleteSVG(counter)}
-                          </summary>
-                          <div class="input-wrapper d-flex jc-space-between ai-center">
-                            <p>Z-index:</p>
-                            <input type="text" class="img-${counter}__z-input z-input" value="${counter}">
-                          </div>
-                          <div class="input-wrapper">
-                            <p class="text-center">Rotate:</p>
-                            <input type="range" min="-180" max="180" value="0" step="1" class="img-${counter}__rotate-input rotate-input">
-                          </div>
-                          <div class="input-wrapper">
-                            <p class="text-center">Scale:</p>
-                            <input type="range" min="20" max="180" value="100" step="1" class="img-${counter}__scale-input scale-input">
-                          </div>
-                          <div class="input-wrapper">
-                            <p class="text-center">Opacity:</p>
-                            <input type="range" min="0" max="1" value="100" step="0.01" class="img-${counter}__opacity-input opacity-input">
-                          </div>
-                          <button class="img-${counter}__remove-bg-btn btn">Remove background</button>`;
-    return imgLabel
-  },
-
-  imgOutputLayout: function (counter) {
-    const imgOutput = document.createElement("IMG");
-    imgOutput.classList.add(`img-output-${counter}`, "img-output");
-    return imgOutput;
   },
 
   deleteSVG: function (counter) {

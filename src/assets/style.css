@@ -199,6 +199,10 @@ details[open] .open-details-svg {
     width: 80%;
 }
 
+.inscription-title {
+    max-width: 85%;
+}
+
 .delete-text-item-btn {
     width: 15px;
     cursor: pointer;
@@ -244,6 +248,27 @@ details[open] .open-details-svg {
     overflow: hidden;
 }
 
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader {
+    width: 50px;
+    height: 50px;
+    border-style: solid;
+    border-color: #fff #fff #fff transparent;
+    border-width: 5px 5px 5px 5px;
+    border-radius: 50%;
+    animation: load 3s linear infinite;
+}
+
 .canvas-resize-trig {
     position: absolute;
     width: 4px;
@@ -281,4 +306,10 @@ canvas {
     left: 0;
     top: 0;
     z-index: 1000;
+}
+
+@keyframes load {
+    to {
+        rotate: 360deg;
+    }
 }
